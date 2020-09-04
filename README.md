@@ -6,6 +6,8 @@
 [x] Remover item da lista  
 [x] Marcar item como concluido  
 
+> obs.: para editar o titulo principal da lista, basta dar um click com mouse em cima do titulo.
+
 ### Stacks
 - Spring Boot 2.3.3 com Java 8
 - Spring Data e Hibernate
