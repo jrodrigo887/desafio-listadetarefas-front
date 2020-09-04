@@ -81,10 +81,13 @@ export class ListaService {
 
 
   // métodos da lista geral
-  getListTitulo(): Todo {
-    return this.data;
-  }
+  // getListTitulo(): Todo {
+  //   return this.data;
+  // }
 
+  public addList(titulo: string): Observable<Todo> {
+    return this.http.post<Todo>(`${API_URL}/tarefas`, {titulo });
+  }
 
   private addListTitulo(todoList: Todo): Observable<Todo> {
     const { id } = todoList;

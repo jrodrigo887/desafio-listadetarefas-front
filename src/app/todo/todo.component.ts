@@ -21,6 +21,7 @@ export class TodoComponent implements OnInit,
 
   getListSub$ = new Subject();
   editListSub$ = new Subject();
+  addListSub$ = new Subject();
 
   deletItemSub$ = new Subject();
   addItemSubj$ = new Subject();
@@ -50,11 +51,13 @@ export class TodoComponent implements OnInit,
         takeUntil(this.getListSub$),
         finalize(() => this.changeRef.detectChanges())
       )
-      .subscribe((data) => {
-        const result = data
-          .find((todo, index, arr) => todo.items.length > 0);
-        this.nomeDaLista = result.titulo;
-        this.data = result;
+      .subscribe((todos) => {
+        if (todos.length > 0) {
+          this.nomeDaLista = todos[0].titulo;
+          this.data = todos[0];
+        } else {
+          this.addList(this.nomeDaLista);
+        }
       });
   }
 
@@ -66,7 +69,7 @@ export class TodoComponent implements OnInit,
         resp => { console.log(resp); },
         () => { },
         () => this.ngOnInit()
-        );
+      );
 
   }
 
@@ -100,11 +103,22 @@ export class TodoComponent implements OnInit,
   }
 
 
+  public addList(titulo: string) {
+
+    this.listaService.addList(titulo)
+      .pipe(
+        takeUntil(this.addListSub$)
+      )
+      .subscribe(resp => {
+        this.data = resp;
+        this.ngOnInit();
+      });
+  }
+
   public editarTituloDaLista() {
 
     this.modalService.editar(this.data)
       .subscribe(titulo => {
-        console.log(titulo);
         if (titulo !== undefined || null) {
           this.data.titulo = titulo;
           this.listaService.updateListTitulo(this.data)
@@ -122,11 +136,14 @@ export class TodoComponent implements OnInit,
     this.getListSub$.next();
     this.getListSub$.complete();
 
-    this.deletItemSub$.next();
-    this.deletItemSub$.complete();
+    this.addListSub$.next();
+    this.addListSub$.complete();
 
     this.editListSub$.next();
     this.editListSub$.complete();
+
+    this.deletItemSub$.next();
+    this.deletItemSub$.complete();
 
     this.addItemSubj$.next();
     this.addItemSubj$.complete();

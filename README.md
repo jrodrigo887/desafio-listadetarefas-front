@@ -6,11 +6,22 @@
 [x] Remover item da lista  
 [x] Marcar item como concluido  
 
-## Links
-### **Github**
-> [Backend](https://github.com/jrodrigo887/desafio-listadetarefas)  
+### Stacks
+- Spring Boot 2.3.3 com Java 8
+- Spring Data e Hibernate
+- Angular 2
 
-> [Frontend]()
+> Utilizo os serviços da Heroku para hospedagem das aplicações frontend e backend.
+
+
+## Links
+### **Web**
+> [App](https://app-lista-de-tarefas.herokuapp.com/) 
+
+### **Github**
+> [Backend](https://github.com/jrodrigo887/desafio-listadetarefas)    
+
+> [Frontend](https://github.com/jrodrigo887/desafio-listadetarefas-front)
 
 ### **Swagger**
 > [Api swagger](https://api-desafio-todolist.herokuapp.com/swagger-ui.html)
