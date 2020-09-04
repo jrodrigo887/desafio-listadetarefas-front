@@ -1,0 +1,51 @@
+<!-- <div class="todo-item">
+  <div class="todo-item-left">
+    <input type="checkbox" [(ngModel)]="item.concluido" (change)="listaService.doneEdit(item)">
+
+    <div *ngIf="!item.editar; else editingTodo" class="todo-item-label" [ngClass]="{ 'completed' : item.concluido }"
+      (dblclick)="listaService.editTodo(item)">{{ item.titulo }}
+    </div>
+
+    <ng-template #editingTodo>
+      <input type="text" class="todo-item-edit" [(ngModel)]="item.titulo"
+      (blur)="listaService.doneEdit(item)" (keyup.enter)="listaService.doneEdit(item)"
+        (keyup.esc)="listaService.cancelEdit(item)" autofocus>
+    </ng-template>
+
+  </div>
+  <div class="remove-item" (click)="listaService.deleteTodo(item.id)">
+    &times;
+  </div>
+</div> -->
+
+ <!-- <ng-template #editLabel inputEdit>
+    <input type="text" class="todo-item-edit" [(ngModel)]="item.titulo"
+    (blur)="editarItem()" (keyup.enter)="editarItem()"
+      (keyup.esc)="cancelEdit()" autofocus>
+  </ng-template> -->
+
+
+
+<div class="todo-item" >
+  <input type="checkbox"
+  class="item-checkbox"
+  (click)="itemConcluido(!item.concluido)"
+  [checked]="item.concluido">
+
+  <span class="item-title"
+  (dblclick)="editarItem()"
+    [ngClass]="{'item-concluido':item.concluido}">
+    {{ item.titulo }}
+  </span>
+
+    <button class="btn btn-yellow"
+    (click)="editarItem()">
+      editar
+    </button>
+
+    <button class="btn btn-red"
+    (click)="removeItem()">
+      remover
+    </button>
+  </div>
+

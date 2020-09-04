@@ -1,0 +1,26 @@
+
+<div class="todo-app">
+  <span (click)="editarTituloDaLista()">
+    <h1 class="app-titulo"> {{ nomeDaLista }} </h1>
+  </span>
+  <app-input-button
+    (enviar)="addItem($event)">
+
+  </app-input-button>
+
+  <ul *ngIf="data!==null" >
+    <li *ngFor="let item of data.items">
+      <app-todo-item
+      [item]="item"
+      (remover)="removeItem($event)"
+      (concluido)="updateItem($event)"
+      (editado)="updateItem($event)"
+      >
+    </app-todo-item>
+
+  </li>
+  </ul>
+</div>
+
+
+

@@ -1,4 +1,23 @@
-# AppTodo
+# Lista de Tarefa
+> App básico que simula um "TODO", lista de tarefas, cumprindo o MVP que contém as funcionalidades a seguir:
+
+[x] Criar a lista  
+[x] Adicionar item à lista  
+[x] Remover item da lista  
+[x] Marcar item como concluido  
+
+## Links
+### **Github**
+> [Backend](https://github.com/jrodrigo887/desafio-listadetarefas)  
+
+> [Frontend]()
+
+### **Swagger**
+> [Api swagger](https://api-desafio-todolist.herokuapp.com/swagger-ui.html)
+
+
+
+--------------------------
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
 
